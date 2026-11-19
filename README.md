@@ -2,11 +2,40 @@
 
 **[Open Odor Lab](https://mohammadsadaf.github.io/odor-lab-web/)**
 
-An interactive molecular odor explorer that predicts 138 odor qualities from a molecular structure. RDKit WebAssembly builds radius-2, 2,048-bit Morgan fingerprints, and the fitted logistic regression classifiers run directly on your device.
+Odor Lab is an interactive web app that predicts how a chemical molecule might smell. You give it a molecular structure, and it returns possible odor descriptions such as fruity, floral, sweet, smoky, or minty.
 
-## Use
+The project explores a question: **can a computer learn the connection between a molecule’s structure and its smell?** Odor Lab uses a machine-learning model trained on molecules with recorded odor descriptions to find those patterns.
 
-Open the hosted website in a current browser, select a molecule or enter a connected molecular SMILES, and explore predicted odor notes. First load downloads the chemistry runtime and fitted model (approximately 11 MB). Predictions run in a Web Worker. Molecular inputs are processed on the visitor's device and are not submitted to a prediction server.
+## Getting started
+
+To describe a molecule, the app accepts a **SMILES string**. This is a short text representation of a chemical structure. For example, `CCO` represents ethanol. You can also start by clicking a familiar example, such as vanillin or limonene, so you don’t need to know chemical notation to explore the app.
+
+## What you can do
+
+Once you select a molecule, Odor Lab lets you:
+
+- **View its structure:** see a diagram showing how its atoms are connected.
+- **Explore predicted smells:** view its highest-scoring descriptions from a vocabulary of 138 odor words.
+- **Check basic properties:** see information such as molecular weight and the number of atoms and bonds.
+- **Compare similar molecules:** explore structures that resemble your input and read their recorded odor labels.
+- **Search the collection:** look for molecules associated with words such as “smoky” or “fruity.”
+- **Download results:** save the prediction scores in a JSON file for later use.
+
+For example, selecting **vanillin** produces strong associations with **vanilla, sweet, and creamy**. Selecting **limonene** changes the results, with **herbal, citrus, and spicy** among its strongest predicted notes. This makes the app useful for exploring how changes in molecular structure relate to changes in smell.
+
+## How it works
+
+Behind the scenes, the app turns each structure into a numerical pattern called a **molecular fingerprint**. The trained model reads that pattern and calculates a score for each odor description. A molecule can receive several descriptions because one smell can have multiple qualities.
+
+The model was trained on **3,871 molecules**, checked against a separate validation set, and finally evaluated on **485 molecules that were not used for training**. It achieved a **ROC-AUC score of 0.841**. This measures how well it ranks odor associations; it does not mean that every prediction is 84.1% accurate.
+
+Odor Lab runs directly in the visitor’s browser. After the chemistry tools and model finish loading, predictions happen on the visitor’s device. No account or software installation is needed. The first load downloads approximately 11 MB of chemistry tools and model files.
+
+## What to keep in mind
+
+The app is an educational and experimental tool. It handles individual molecules, while complete perfumes, foods, and other mixtures involve additional complexity. Its scores describe possible odor qualities; smell strength, concentration, and differences between people fall outside what the model measures.
+
+## Run locally
 
 For local use, serve this directory over HTTP:
 
