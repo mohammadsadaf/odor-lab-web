@@ -1,6 +1,8 @@
-# Odor Lab — browser edition
+# Odor Lab
 
-An interactive molecular odor explorer. RDKit WebAssembly builds radius-2, 2,048-bit Morgan fingerprints; JavaScript evaluates the same 138 fitted logistic regression classifiers as the Python Odor Lab project.
+**[Open Odor Lab](https://mohammadsadaf.github.io/odor-lab-web/)**
+
+An interactive molecular odor explorer that predicts 138 odor qualities from a molecular structure. RDKit WebAssembly builds radius-2, 2,048-bit Morgan fingerprints, and the fitted logistic regression classifiers run directly on your device.
 
 ## Use
 
@@ -27,7 +29,7 @@ This directory is a complete static site. On GitHub Pages, select the main branc
 - RDKit browser and Python versions: 2026.09.2.
 - Fitted coefficients are Float64 little-endian in data/weights.bin; task order, intercepts, dataset labels and fingerprints, and measured metrics are in data/model.json.
 
-Scores are uncalibrated label probabilities, not odor intensity. Molecules in the training set are marked in the interface. Random molecular splitting permits related structures across splits. This baseline is separate from the OpenPOM graph neural network. OpenPOM GPU training and BME688 sensor collection/training remain separate workflows in the Python project.
+Scores are uncalibrated label probabilities, not odor intensity. Molecules in the training set are marked in the interface. Random molecular splitting permits related structures across splits. The published metrics describe this project's fingerprint baseline; the OpenPOM graph neural network and BME688 sensor classifier are different models.
 
 ## Attribution
 
