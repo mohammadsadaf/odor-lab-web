@@ -6,6 +6,8 @@ Odor Lab is an interactive web app that predicts how a chemical molecule might s
 
 The project explores a question: **can a computer learn the connection between a molecule’s structure and its smell?** Odor Lab uses a machine-learning model trained on molecules with recorded odor descriptions to find those patterns.
 
+![Odor Lab showing vanillin’s molecular structure and predicted scent profile](assets/odor-lab.jpg)
+
 ## Getting started
 
 To describe a molecule, the app accepts a **SMILES string**. This is a short text representation of a chemical structure. For example, `CCO` represents ethanol. You can also start by clicking a familiar example, such as vanillin or limonene, so you don’t need to know chemical notation to explore the app.
